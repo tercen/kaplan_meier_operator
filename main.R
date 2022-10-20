@@ -11,7 +11,8 @@ ctx = tercenCtx()
 
 plot.ci <- ctx$op.value("plot.ci", as.logical, F)
 plot.risk.table <- ctx$op.value("plot.risk.table", as.logical, F)
-plot.scale.factor <- ctx$op.value("plot.scale.factor", as.numeric, 1)
+width.scale.factor <- ctx$op.value("width.scale.factor", as.numeric, 1)
+heigth.scale.factor <- ctx$op.value("heigth.scale.factor", as.numeric, 1)
 text.scale.factor <- ctx$op.value("text.scale.factor", as.numeric, 1)
 
 df_list <- ctx$select(c(".y", ".x", ".ci", ".ri", ctx$colors)) %>% 
@@ -58,8 +59,8 @@ table.list <- lapply(df_list, function(df) {
   
   plot_file <- tim::save_plot(
     p,
-    width = 3,
-    height = ifelse(plot.risk.table, plot.scale.factor * 4, plot.scale.factor * 3),
+    width = width.scale.factor * 3,
+    height = ifelse(plot.risk.table, heigth.scale.factor * 4, heigth.scale.factor * 3),
     units = "in"
   )
   
