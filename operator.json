@@ -4,8 +4,21 @@
   "tags": ["statistical testing", "modelling"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/kaplan_meier_operator"],
-  "container": "tercen/kaplan_meier_operator:latest",
-  "properties": []
+  "container": "tercen/kaplan_meier_operator:0.0.1",
+  "properties": [
+    {
+    "kind": "BooleanProperty",
+    "name": "plot.ci",
+    "defaultValue": true,
+    "description": "Whether to plot confidence intervals."
+    },
+    {
+    "kind": "BooleanProperty",
+    "name": "plot.risk.table",
+    "defaultValue": true,
+    "description": "Whether to add a risk table to the plot."
+    }
+  ]
 }
 
 
