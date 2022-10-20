@@ -17,6 +17,18 @@
     "name": "plot.risk.table",
     "defaultValue": true,
     "description": "Whether to add a risk table to the plot."
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "plot.scale.factor",
+    "defaultValue": 1,
+    "description": "Plot size scale factor."
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "text.scale.factor",
+    "defaultValue": 1,
+    "description": "Text size scale factor."
     }
   ]
 }

@@ -11,6 +11,8 @@ ctx = tercenCtx()
 
 plot.ci <- ctx$op.value("plot.ci", as.logical, F)
 plot.risk.table <- ctx$op.value("plot.risk.table", as.logical, F)
+plot.scale.factor <- ctx$op.value("plot.scale.factor", as.numeric, 1)
+text.scale.factor <- ctx$op.value("text.scale.factor", as.numeric, 1)
 
 df_list <- ctx$select(c(".y", ".x", ".ci", ".ri", ctx$colors)) %>% 
   group_by(.ci, .ri) %>%
@@ -24,6 +26,8 @@ grid.draw.ggsurvplot <- function(x) {
   survminer:::print.ggsurvplot(x, newpage = FALSE)
 }
 
+text.size.large <-text.scale.factor * 10
+text.size.small <-text.scale.factor * 8
 
 table.list <- lapply(df_list, function(df) {
   fit <- surv_fit(form, data = df)
@@ -34,28 +38,28 @@ table.list <- lapply(df_list, function(df) {
     conf.int = plot.ci,
     pval = FALSE,
     risk.table = plot.risk.table,
-    font.title = 10,
-    font.subtitle = 8,
-    font.caption = 8,
-    font.legend = 8,
-    font.x = 8,
-    font.y = 8,
-    font.tickslab = 8,
-    fontsize = 3,
+    font.title = text.size.large,
+    font.subtitle = text.size.small,
+    font.caption = text.size.small,
+    font.legend = text.size.small,
+    font.x = text.size.small,
+    font.y = text.size.small,
+    font.tickslab = text.size.small,
+    fontsize = 3 * text.scale.factor,
     ggtheme = theme_classic()
   )
   
   p$table <- p$table +
     theme(
-      plot.title = element_text(size = 10),
-      axis.text = element_text(size = 8),
-      axis.title = element_text(size = 8)
+      plot.title = element_text(size = text.size.large),
+      axis.text = element_text(size = text.size.small),
+      axis.title = element_text(size = text.size.small)
     )
   
   plot_file <- tim::save_plot(
     p,
     width = 3,
-    height = ifelse(plot.risk.table, 4, 3),
+    height = ifelse(plot.risk.table, plot.scale.factor * 4, plot.scale.factor * 3),
     units = "in"
   )
   
