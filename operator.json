@@ -35,6 +35,13 @@
     "name": "text.scale.factor",
     "defaultValue": 1,
     "description": "Text size scale factor."
+    },
+    {
+    "kind": "EnumeratedProperty",
+    "name": "arrange",
+    "defaultValue": "One plot per cell",
+    "values": ["One plot per cell", "Grid"] 
+    "description": "Text size scale factor."
     }
   ]
 }
