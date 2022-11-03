@@ -4,7 +4,7 @@
   "tags": ["statistical testing", "modelling"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/kaplan_meier_operator"],
-  "container": "tercen/kaplan_meier_operator:0.0.3",
+  "container": "tercen/kaplan_meier_operator:0.0.5",
   "properties": [
     {
     "kind": "BooleanProperty",
@@ -40,7 +40,7 @@
     "kind": "EnumeratedProperty",
     "name": "arrange",
     "defaultValue": "One plot per cell",
-    "values": ["One plot per cell", "Grid"] 
+    "values": ["One plot per cell", "Grid"],
     "description": "Text size scale factor."
     }
   ]
